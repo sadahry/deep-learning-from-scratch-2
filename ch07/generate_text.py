@@ -18,7 +18,7 @@ start_id = word_to_id[start_word]
 skip_words = ['N', '<unk>', '$']
 skip_ids = [word_to_id[w] for w in skip_words]
 # 文章生成
-word_ids = model.generate(start_id, skip_ids)
+word_ids = model.generate(start_id, skip_ids, id_to_word)
 txt = ' '.join([id_to_word[i] for i in word_ids])
 txt = txt.replace(' <eos>', '.\n')
 print(txt)
